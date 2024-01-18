@@ -5,6 +5,16 @@ import bs4
 #importing openpyxl 
 from openpyxl import Workbook, load_workbook 
 
+def CheckBuyPrice(token,amount):
+    for row in range(2,max_row+1):
+        token_name = ws['B' + str(row)].value
+        if (token_name == token):
+            ws['D' + str(row)].value = ws['E' + str(row)].value
+            if (amount>0):
+                ws['C' + str(row)].value = amount
+            else:
+                ws['C' + str(row)].value = 0
+
 wb=load_workbook('Cryptocurrency.xlsx')
 # Setting the URL of the coinmarketcap dates to get prices
 url = "https://coinmarketcap.com/"
@@ -28,8 +38,8 @@ max_row=ws.max_row
 
 for row in range(2,max_row+1):
     
-    previus_price = ws['D' + str(row)].value
-    ws['E' + str(row)].value = previus_price
+    previus_price = ws['E' + str(row)].value
+    ws['F' + str(row)].value = previus_price
     
 wb.save('Cryptocurrency.xlsx')
 
@@ -74,10 +84,10 @@ max_row=ws.max_row
 
 for row in range(2,max_row+1):
     
-    ws['D' + str(row)].value = tokens_prices[row-2]
-
+    ws['E' + str(row)].value = tokens_prices[row-2]
+    
+CheckBuyPrice("BNB",100)    
     
 wb.save('Cryptocurrency.xlsx')
 wb.close()  
 
-    

@@ -1,1 +1,2 @@
-# ProjektsDarbs
+### Crypto Currency Price Checker
+
