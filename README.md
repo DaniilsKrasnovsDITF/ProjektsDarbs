@@ -1,6 +1,6 @@
 ### Crypto Currency Price Checker
 
-##Risinājuma apraksts
+## Risinājuma apraksts
 
 
 Crypto Currency Price Checker ir ērtības rīks, kas ievērojami atvieglo kriptovalūtu portfeļa pārvaldīšanu.
@@ -12,7 +12,7 @@ Crypto Currency Price Checker darbojas automātiski, nodrošinot aktuālo kripto
 Ar Crypto Currency Price Checker var būt pilnīgi uzticīgs un automatizēts draugs, kas atvieglo ieguldījumu pārvaldīšanu kriptovalūtās, atstājot lietotājam vairāk laika un enerģijas svarīgām finanšu lēmumu pieņemšanas aspektiem.
 
 
-##Izmantotās bibliotēkas
+## Izmantotās bibliotēkas
 Šajā risinājumā tiek izmantotas trīs galvenās bibliotēkas: openpyxl, bs4 un requests.
 
 openpyxl tiek izmantota, lai efektīvi strādātu ar Excel tabulām, nodrošinot datu iegūšanu un to nākamo aizpildīšanu pašā tabulā.
