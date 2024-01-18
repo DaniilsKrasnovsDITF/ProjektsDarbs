@@ -4,7 +4,9 @@ import requests
 import bs4
 #importing openpyxl 
 from openpyxl import Workbook, load_workbook 
-# Setting the URL of the Wikipedia page for Riga Technical University as the target for scraping
+
+wb=load_workbook('Cryptocurrency.xlsx')
+# Setting the URL of the coinmarketcap dates to get prices
 url = "https://coinmarketcap.com/"
 url_zkf = "https://coinmarketcap.com/currencies/zkfair/"
 url_matic = "https://coinmarketcap.com/currencies/polygon/"
@@ -20,6 +22,17 @@ atom_request = requests.get(url_atom)
 apt_request = requests.get(url_apt)
 arb_request = requests.get(url_arb)
 sui_request = requests.get(url_sui)
+
+ws=wb.active
+max_row=ws.max_row
+
+for row in range(2,max_row+1):
+    
+    previus_price = ws['D' + str(row)].value
+    ws['E' + str(row)].value = previus_price
+    
+wb.save('Cryptocurrency.xlsx')
+
 
 # Checking if the request was successful (HTTP status code 200 means OK/successful)
 if saturs.status_code == 200:
@@ -55,15 +68,16 @@ for i in range(0,11):
     tokens_prices[i] = str(tokens_prices[i]).replace(",","").replace("$","")
     tokens_prices[i] = float(tokens_prices[i])
     
-wb=load_workbook('Cryptocurrency.xlsx')
+
 ws=wb.active
 max_row=ws.max_row
 
 for row in range(2,max_row+1):
     
     ws['D' + str(row)].value = tokens_prices[row-2]
-    print(ws['D' + str(row)].value)
+
     
 wb.save('Cryptocurrency.xlsx')
 wb.close()  
 
+    
